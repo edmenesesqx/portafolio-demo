@@ -1,0 +1,61 @@
+@if(data.action === 'editar'){
+    <mat-dialog-content class="mat-typography">
+        <h3 class="form-header">Editar Mensaje #{{id}}</h3>
+        
+        <form [formGroup]="formMensaje" >
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="info__container">
+                    
+                        <div class="select__container">
+        
+                            <span > Mensaje: </span>
+                            <input type="text" formControlName="mensaje">
+
+                        </div>
+
+                        <div class="select__container">
+        
+                            <span > Progreso: </span>
+                            <input type="number" formControlName="progreso">
+
+                        </div>
+        
+                        <div class="select__container">
+
+                            <span>Estado: </span>
+                            <select name="Estado" id="" formControlName="estado">
+                                <option value="Por empezar">Por empezar</option>
+                                <option value="En proceso">En proceso</option>
+                                <option value="Terminados">Terminados</option>
+                            </select>
+
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="button__save">
+                <button class="acciones guardar" (click)="saveMensaje()">Guardar</button>
+                <button class="acciones cancelar" (click)="dialogRef.close()">Cancelar</button>
+            </div>
+        </form>
+    </mat-dialog-content>
+}
+
+@if(data.action === 'eliminar'){
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="formMensaje" action="">
+        <h3 class="form-header" >¿Desea eliminar el Mensaje #{{id}}</h3>
+        <hr>
+
+            <div class="button__save">
+                <button class="acciones guardar" (click)="deleteMensaje()">Eliminar</button>
+                <button class="acciones cancelar" (click)="dialogRef.close()">Cancelar</button>
+            </div>
+                
+        </form>
+    </mat-dialog-content>
+  }
