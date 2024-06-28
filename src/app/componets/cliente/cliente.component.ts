@@ -4,39 +4,15 @@ import { NgZorroComponentsModule} from '../../shared/antd-module/ng-zorro-compon
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
-import { NzButtonModule } from 'ng-zorro-antd/button'; 
-import { MenuComponent } from '../../shared/components/menu/menu.component';
-import { MenuService } from '../../service/menu.service';
+
 @Component({
-  selector: 'app-plataforma-servicio',
+  selector: 'app-cliente',
   standalone: true,
-  imports: [ MenuComponent, CommonModule, NgZorroComponentsModule, FormsModule, HeaderComponent, FooterComponent, NzButtonModule],
-  templateUrl: './plataforma-servicio.component.html',
-  styleUrl: './plataforma-servicio.component.sass'
+  imports: [ CommonModule, NgZorroComponentsModule, FormsModule, HeaderComponent, FooterComponent],
+  templateUrl: './cliente.component.html',
+  styleUrl: './cliente.component.sass'
 })
-export class PlataformaServicioComponent {
-  isContentVisibleNuevo: boolean = false;
-  isContentVisibleEditar: boolean = false;
-  isCollapsed: boolean = false;
-
-
-  ngOnInit() {
-    this.menuService.collapsed$.subscribe(isCollapsed => {
-      this.isCollapsed = isCollapsed;
-    });
-  }
-  
-  
-  toggleContent(content: string): void {
-    if (content === 'nuevo') {
-      this.isContentVisibleNuevo = !this.isContentVisibleNuevo;
-      this.isContentVisibleEditar = false; // Asegura que "Editar" esté oculto
-    } else if (content === 'editar') {
-      this.isContentVisibleEditar = !this.isContentVisibleEditar;
-      this.isContentVisibleNuevo = false; // Asegura que "Nuevo" esté oculto
-     
-    }
-  }
+export class ClienteComponent {
   listOfAllData: any[] = [];
   listOfData: any[] = [];
   pageSize: number = 10;
@@ -44,7 +20,7 @@ export class PlataformaServicioComponent {
   pageIndex: number = 1;
   pageSizeOptions: number[] = [5, 10, 15];
 
-  constructor(private menuService: MenuService) {
+  constructor() {
     this.generateData();
     this.loadData();
   }
@@ -83,4 +59,5 @@ export class PlataformaServicioComponent {
     this.pageIndex = index;
     this.loadData();
   }
+  
 }

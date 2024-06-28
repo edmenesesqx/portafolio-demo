@@ -1,248 +1,257 @@
 <app-header></app-header>
-<div class="container-fluid">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 nz-typography class="my-3">Plataforma - Servicio</h2>
-        <button 
-        nz-button 
-        nzType="default" 
-        (click)="toggleContent('nuevo')"
-        *ngIf="!isContentVisibleEditar">Nuevo</button>
-    </div>
-    <div *ngIf="!isContentVisibleNuevo && !isContentVisibleEditar" nz-row nz-flex class="justify-content-between" id="content-plataforma">
-        <nz-card>
-            <form nz-form>
-                <div class="row">
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Plataforma - Servicio</nz-form-label>
-                            <nz-select nzShowSearch nzPlaceHolder="Buscar y seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Vertical</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Grupo</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Tipo</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3 d-flex align-items-end mt-4">
-                        <div class="col-md-auto">
-                            <button nz-button nzType="primary">Buscar</button>
+<div class="d-flex m-0 p-0">
+    <app-menu
+    class=" m-0 p-0"
+    >
+    </app-menu>
+    <div 
+    class="container-fluid m-0"
+    [ngClass]="{ 'col-12': isCollapsed }"
+    >
+        <div class="d-flex justify-content-between align-items-center">
+            <h2 nz-typography class="my-3">Plataforma - Servicio</h2>
+            <button 
+            nz-button 
+            nzType="default" 
+            (click)="toggleContent('nuevo')"
+            *ngIf="!isContentVisibleEditar">Nuevo</button>
+        </div>
+        <div *ngIf="!isContentVisibleNuevo && !isContentVisibleEditar" nz-row nz-flex class="justify-content-between" id="content-plataforma">
+            <nz-card>
+                <form nz-form>
+                    <div class="row">
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Plataforma - Servicio</nz-form-label>
+                                <nz-select nzShowSearch nzPlaceHolder="Buscar y seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
                         </div>
-                        <a class="ng-link-primary" nz-button nzType="link">Limpiar filtros</a>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Vertical</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Grupo</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Tipo</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3 d-flex align-items-end mt-4">
+                            <div class="col-md-auto">
+                                <button nz-button nzType="primary">Buscar</button>
+                            </div>
+                            <a class="ng-link-primary" nz-button nzType="link">Limpiar filtros</a>
+                        </div>
+                        
                     </div>
+                </form>
+                
+
+                <div class="mb-4 d-flex justify-content-end">
+                    <label class="my-auto mr-2" for="pageSizeSelect">Page Length:</label>
+                    <nz-select
+                    id="pageSizeSelect"
+                    [(ngModel)]="pageSize"
+                    (ngModelChange)="onPageSizeChange($event)"
+                    nzPlaceHolder="Select page size"
+                    style="width: 120px;">
+                    <nz-option *ngFor="let size of pageSizeOptions" [nzValue]="size" [nzLabel]="size"></nz-option>
+                    </nz-select>
+                </div>
+                
+                <nz-table #basicTable nzSize="small" [nzData]="listOfData" [nzBordered]="true" [nzShowPagination]="false">
+                    <thead>
+                    <tr>
+                        <th nzWidth="">Plataforma - Servicio</th>
+                        <th nzWidth="">Vertical</th>
+                        <th nzWidth="">Grupo</th>
+                        <th nzWidth="">Tipo</th>
+                        <th nzWidth="">Versión</th>
+                        <th nzWidth="">Última modificación</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let data of listOfData">
+                        <td>
+                            <span class="d-block">Detección Electrónica de Infracciones - DEI</span>
+                            <a class="px-0 ng-link-primary text-underline" nz-button nzType="link" (click)="toggleContent('editar')">
+                                <i class="icon icon-edit mr-2 fs-16"></i>
+                                <span class="mx-2 text-underline ">Editar</span>
+                            </a>
+                        </td>
+                        <td>Infracciones</td>
+                        <td>Transformación del modelo de prestación de servicios</td>
+                        <td>Plataforma</td>
+                        <td>2.1</td>
+                        <td>
+                            <span class="d-block">12/03/2024</span>
+                            <span class="d-block">10:35:23</span>
+                        </td>
+                    </tr>
                     
-                </div>
-            </form>
-            
-
-            <div class="mb-4 d-flex justify-content-end">
-                <label class="my-auto mr-2" for="pageSizeSelect">Page Length:</label>
-                <nz-select
-                  id="pageSizeSelect"
-                  [(ngModel)]="pageSize"
-                  (ngModelChange)="onPageSizeChange($event)"
-                  nzPlaceHolder="Select page size"
-                  style="width: 120px;">
-                  <nz-option *ngFor="let size of pageSizeOptions" [nzValue]="size" [nzLabel]="size"></nz-option>
-                </nz-select>
-              </div>
-              
-              <nz-table #basicTable nzSize="small" [nzData]="listOfData" [nzBordered]="true" [nzShowPagination]="false">
-                <thead>
-                  <tr>
-                    <th nzWidth="">Plataforma - Servicio</th>
-                    <th nzWidth="">Vertical</th>
-                    <th nzWidth="">Grupo</th>
-                    <th nzWidth="">Tipo</th>
-                    <th nzWidth="">Versión</th>
-                    <th nzWidth="">Última modificación</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let data of listOfData">
-                    <td>
-                        <span class="d-block">Detección Electrónica de Infracciones - DEI</span>
-                        <a class="px-0 ng-link-primary text-underline" nz-button nzType="link" (click)="toggleContent('editar')">
-                            <i class="icon icon-edit mr-2 fs-16"></i>
-                            <span class="mx-2 text-underline ">Editar</span>
-                        </a>
-                    </td>
-                    <td>Infracciones</td>
-                    <td>Transformación del modelo de prestación de servicios</td>
-                    <td>Plataforma</td>
-                    <td>2.1</td>
-                    <td>
-                        <span class="d-block">12/03/2024</span>
-                        <span class="d-block">10:35:23</span>
-                    </td>
-                  </tr>
-                 
-                </tbody>
-              </nz-table>
-              
-              <nz-pagination
-              class="text-center my-4"
-                *ngIf="listOfData.length > 0"
-                [(nzPageIndex)]="pageIndex"
-                [(nzPageSize)]="pageSize"
-                [nzTotal]="total"
-                [nzPageSizeOptions]="pageSizeOptions"
-                (nzPageSizeChange)="onPageSizeChange($event)"
-                (nzPageIndexChange)="onPageIndexChange($event)">
-              </nz-pagination>
-              
-        </nz-card>
-    </div>
-    <div *ngIf="isContentVisibleNuevo || isContentVisibleEditar"  nz-row nz-flex class="justify-content-between" id="content-plataforma">
-        <nz-card>
-            <form nz-form>
-                <div class="row">
-                    <div class="col-6">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Plataforma - Servicio</nz-form-label>
-                            <input nz-input id="basicInput" placeholder="Detección Electrónica de Infracciones - DEI" />
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Vertical</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Grupo</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Tipo</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Versión</nz-form-label>
-                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                </div>
-            </form>
-            <h5 class="mt-4">Nuevo componente</h5>
-            <form nz-form>
-                <div class="row">
-                    <div class="col-3">
-                        <nz-form-item class="m-0">
-                            <nz-form-label>Componentes</nz-form-label>
-                            <nz-select nzShowSearch nzPlaceHolder="Buscar y seleccionar">
-                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
-                            </nz-select>
-                        </nz-form-item>
-                    </div>
-                    <div class="col-3 d-flex align-items-end mt-4">
-                        <div class="col-md-auto">
-                            <button nz-button nzType="default">Agregar</button>
+                    </tbody>
+                </nz-table>
+                
+                <nz-pagination
+                class="text-center my-4"
+                    *ngIf="listOfData.length > 0"
+                    [(nzPageIndex)]="pageIndex"
+                    [(nzPageSize)]="pageSize"
+                    [nzTotal]="total"
+                    [nzPageSizeOptions]="pageSizeOptions"
+                    (nzPageSizeChange)="onPageSizeChange($event)"
+                    (nzPageIndexChange)="onPageIndexChange($event)">
+                </nz-pagination>
+                
+            </nz-card>
+        </div>
+        <div *ngIf="isContentVisibleNuevo || isContentVisibleEditar"  nz-row nz-flex class="justify-content-between" id="content-plataforma">
+            <nz-card>
+                <form nz-form>
+                    <div class="row">
+                        <div class="col-6">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Plataforma - Servicio</nz-form-label>
+                                <input nz-input id="basicInput" placeholder="Detección Electrónica de Infracciones - DEI" />
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Vertical</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Grupo</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Tipo</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Versión</nz-form-label>
+                                <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
                         </div>
                     </div>
-                </div>
-            </form>
-            
+                </form>
+                <h5 class="mt-4">Nuevo componente</h5>
+                <form nz-form>
+                    <div class="row">
+                        <div class="col-3">
+                            <nz-form-item class="m-0">
+                                <nz-form-label>Componentes</nz-form-label>
+                                <nz-select nzShowSearch nzPlaceHolder="Buscar y seleccionar">
+                                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                    <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                    <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                                </nz-select>
+                            </nz-form-item>
+                        </div>
+                        <div class="col-3 d-flex align-items-end mt-4">
+                            <div class="col-md-auto">
+                                <button nz-button nzType="default">Agregar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
 
-            <div class="mb-4 d-flex justify-content-end">
-                <label class="my-auto mr-2" for="pageSizeSelect">Page Length:</label>
-                <nz-select
-                  id="pageSizeSelect"
-                  [(ngModel)]="pageSize"
-                  (ngModelChange)="onPageSizeChange($event)"
-                  nzPlaceHolder="Select page size"
-                  style="width: 120px;">
-                  <nz-option *ngFor="let size of pageSizeOptions" [nzValue]="size" [nzLabel]="size"></nz-option>
-                </nz-select>
-              </div>
-              
-              <nz-table #basicTable nzSize="small" [nzData]="listOfData" [nzBordered]="true" [nzShowPagination]="false">
-                <thead>
-                  <tr>
-                    <th nzWidth="">Componente</th>
-                    <th nzWidth="">Título</th>
-                    <th *ngIf="isContentVisibleEditar" nzWidth=""></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                        Integración con otras Soluciones y Componentes
-                    </td>
-                    <td>Cámaras de fotodetección</td>
-                    <td *ngIf="isContentVisibleEditar" class="text-center">
-                        <i class="icon-primary icon icon-delete-alt mr-2 fs-16"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </nz-table>
-              
-              <nz-pagination
-              class="text-center my-4"
-                *ngIf="listOfData.length > 0"
-                [(nzPageIndex)]="pageIndex"
-                [(nzPageSize)]="pageSize"
-                [nzTotal]="total"
-                [nzPageSizeOptions]="pageSizeOptions"
-                (nzPageSizeChange)="onPageSizeChange($event)"
-                (nzPageIndexChange)="onPageIndexChange($event)">
-              </nz-pagination>
-              
-        </nz-card>
-    </div>
-    <div class="d-flex justify-content-end my-4 pb-4">
-        <button nz-button nzType="default" class="m-2">Cancelar</button>
-        <button nz-button nzType="primary" class="my-2">Guardar</button>
+                <div class="mb-4 d-flex justify-content-end">
+                    <label class="my-auto mr-2" for="pageSizeSelect">Page Length:</label>
+                    <nz-select
+                    id="pageSizeSelect"
+                    [(ngModel)]="pageSize"
+                    (ngModelChange)="onPageSizeChange($event)"
+                    nzPlaceHolder="Select page size"
+                    style="width: 120px;">
+                    <nz-option *ngFor="let size of pageSizeOptions" [nzValue]="size" [nzLabel]="size"></nz-option>
+                    </nz-select>
+                </div>
+                
+                <nz-table #basicTable nzSize="small" [nzData]="listOfData" [nzBordered]="true" [nzShowPagination]="false">
+                    <thead>
+                    <tr>
+                        <th nzWidth="">Componente</th>
+                        <th nzWidth="">Título</th>
+                        <th *ngIf="isContentVisibleEditar" nzWidth=""></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            Integración con otras Soluciones y Componentes
+                        </td>
+                        <td>Cámaras de fotodetección</td>
+                        <td *ngIf="isContentVisibleEditar" class="text-center">
+                            <i class="icon-primary icon icon-delete-alt mr-2 fs-16"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                </nz-table>
+                
+                <nz-pagination
+                class="text-center my-4"
+                    *ngIf="listOfData.length > 0"
+                    [(nzPageIndex)]="pageIndex"
+                    [(nzPageSize)]="pageSize"
+                    [nzTotal]="total"
+                    [nzPageSizeOptions]="pageSizeOptions"
+                    (nzPageSizeChange)="onPageSizeChange($event)"
+                    (nzPageIndexChange)="onPageIndexChange($event)">
+                </nz-pagination>
+                
+            </nz-card>
+        </div>
+        <div class="d-flex justify-content-end my-4 pb-4">
+            <button nz-button nzType="default" class="m-2">Cancelar</button>
+            <button nz-button nzType="primary" class="my-2">Guardar</button>
+        </div>
     </div>
 </div>

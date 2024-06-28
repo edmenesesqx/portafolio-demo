@@ -1,0 +1,300 @@
+<app-header></app-header>
+<div class="d-flex m-0 p-0">
+  <app-menu
+      class=" m-0 p-0"
+      >
+  </app-menu>
+  <div class="container-fluid m-0"
+  [ngClass]="{ 'col-12': isCollapsed }">
+      <div class="d-flex justify-content-between align-items-center">
+          <h2 nz-typography class="my-3" *ngIf="!verComp && !isContentVisibleNuevo">Componentes</h2>
+          <h2 nz-typography class="my-3" *ngIf="isContentVisibleNuevo">Cliente</h2>
+          <h2 nz-typography class="my-3" *ngIf="verComp">Medellín - Servicios digitales para el ciudadano</h2>
+          <button 
+              nz-button 
+              nzType="default" 
+              (click)="toggleContent('nuevo')"
+              *ngIf="!isContentVisibleNuevo">
+              Nuevo
+          </button>
+      </div>
+      <div *ngIf="!isContentVisibleNuevo && !isContentVisibleEditar" nz-row nz-flex class="justify-content-between">
+          <nz-card>
+              <form nz-form>
+                  <div class="row">
+                      <div class="col-3">
+                          <nz-form-item class="m-0">
+                              <nz-form-label>Cliente</nz-form-label>
+                              <nz-select id="cliente" nzShowSearch nzAllowClear nzPlaceHolder="Buscar o seleccionar">
+                                  <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                                  <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                                  <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                              </nz-select>
+                          </nz-form-item>
+                      </div>
+                      <div class="col-3">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Funcionalidad</nz-form-label>
+                            <nz-select id="funcionalidad-select" nzShowSearch nzAllowClear nzPlaceHolder="Buscar o seleccionar">
+                                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                            </nz-select>
+                        </nz-form-item>
+                       </div>
+                    <div class="col-3">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Plataforma - Servicio</nz-form-label>
+                            <nz-select id="plataforma-servicio" nzShowSearch nzAllowClear nzPlaceHolder="Buscar o seleccionar">
+                                <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+                                <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+                                <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+                            </nz-select>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-3">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Vertical</nz-form-label>
+                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                            </nz-select>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-3">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Grupo</nz-form-label>
+                            <nz-select id="grupo" nzPlaceHolder="Seleccionar">
+                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                            </nz-select>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-3">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Tipo</nz-form-label>
+                            <nz-select id="tipo" nzPlaceHolder="Seleccionar">
+                                <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                                <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                            </nz-select>
+                        </nz-form-item>
+                    </div>
+                     
+                      <div class="col-3 d-flex align-items-end">
+                          <div class="col-md-auto">
+                              <button nz-button nzType="primary">Buscar</button>
+                          </div>
+                          <a class="ng-link-primary" nz-button nzType="link">Limpiar filtros</a>
+                      </div>
+                  </div>
+              </form>
+              
+              <div class="mb-4 d-flex justify-content-end">
+                  <label class="my-auto mr-2" for="pageSizeSelect">Page Length:</label>
+                  <nz-select
+                    id="pageSizeSelect"
+                    [(ngModel)]="pageSize"
+                    (ngModelChange)="onPageSizeChange($event)"
+                    nzPlaceHolder="Select page size"
+                    style="width: 120px;">
+                    <nz-option *ngFor="let size of pageSizeOptions" [nzValue]="size" [nzLabel]="size"></nz-option>
+                  </nz-select>
+                </div>
+                
+                <nz-table #basicTable nzSize="small" [nzData]="listOfData" [nzBordered]="true" [nzShowPagination]="false">
+                  <thead>
+                    <tr>
+                      <th>Componente</th>
+                      <th>Estado</th>
+                      <th>Última modificación</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of listOfData">
+                      <td>
+                        Integración con otras Soluciones y Componentes
+                      </td>
+                      <td>Pendiente</td>
+                      <td>
+                        <span class="d-block">12/03/2024</span>
+                        <span> 10:35:23</span>
+                      </td>
+                      <td>
+                        <button nz-button nzType="default" (click)="toggleContent('editar')">Ver / Editar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </nz-table>
+                
+                <nz-pagination
+                class="text-center my-4"
+                  *ngIf="listOfData.length > 0"
+                  [(nzPageIndex)]="pageIndex"
+                  [(nzPageSize)]="pageSize"
+                  [nzTotal]="total"
+                  [nzPageSizeOptions]="pageSizeOptions"
+                  (nzPageSizeChange)="onPageSizeChange($event)"
+                  (nzPageIndexChange)="onPageIndexChange($event)">
+                </nz-pagination>
+                
+          </nz-card>
+      </div>
+      <div *ngIf="isContentVisibleNuevo || isContentVisibleEditar"  nz-row nz-flex class="justify-content-between" id="content-plataforma">
+        <nz-card>
+            <form nz-form>
+                <div class="row">
+                    <div class="col-8">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Componente</nz-form-label>
+                            <input nz-input id="basicInput" placeholder="Detección Electrónica de Infracciones - DEI" />
+                        </nz-form-item>
+                    </div>
+                </div>
+            </form>
+            <h5 class="mt-4">Información funcionalidad</h5>
+            <form nz-form>
+                <div class="row">
+                    <div class="col-4">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Título</nz-form-label>
+                            <input nz-input id="titulo" />
+                        </nz-form-item>
+                    </div>
+                    <div class="col-4">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Funcionalidad</nz-form-label>
+                            <input nz-input id="funcionalidad" />
+                        </nz-form-item>
+                    </div>
+                    <div class="col-4">
+                        <nz-form-item class="m-0">
+                            <nz-form-label>Estado Quipux</nz-form-label>
+                            <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                                <nz-option nzValue="jack" nzLabel="Jack" nzTitle=" Aplica para las siguientes etapas: instalación, configuración y estabilización en el ambiente de preproducción del cliente."></nz-option>
+                                <nz-option nzValue="lucy" nzLabel="Lucy"  nzTitle=""></nz-option>
+                                <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                            </nz-select>
+                        </nz-form-item>
+                    </div>
+                    <div class="col-2">
+                        <div class="checkbox-group">
+                            <nz-form-label class="d-block">Objetivo OD</nz-form-label>
+                            <nz-radio-group [(ngModel)]="selectedValue">
+                                <label nz-radio nzValue="yes">Sí</label>
+                                <label nz-radio nzValue="no">No</label>
+                              </nz-radio-group>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex align-items-end mt-4">
+                        <div class="col-md-auto">
+                            <button nz-button nzType="default">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="mb-4 d-flex justify-content-end">
+                <label class="my-auto mr-2" for="pageSizeSelect">Page Length:</label>
+                <nz-select
+                id="pageSizeSelect"
+                [(ngModel)]="pageSize"
+                (ngModelChange)="onPageSizeChange($event)"
+                nzPlaceHolder="Select page size"
+                style="width: 120px;">
+                <nz-option *ngFor="let size of pageSizeOptions" [nzValue]="size" [nzLabel]="size"></nz-option>
+                </nz-select>
+            </div>
+            
+            <nz-table #basicTable nzSize="small" [nzData]="listOfData" [nzBordered]="true" [nzShowPagination]="false">
+                <thead>
+                <tr>
+                    <th nzWidth="">Título</th>
+                    <th nzWidth="">Funcionalidad</th>
+                    <th nzWidth="">Estado</th>
+                    <th nzWidth="">Objetivo OD</th>
+                    <th nzWidth="">Acciones </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>No aplica</td>
+                    <td>Cancelación de matrículas</td>
+                    <td>Construcción</td>
+                    <td>
+                        <div class="checkbox-group">
+                            <nz-radio-group [(ngModel)]="selectedValueTwo"> 
+                                <label nz-radio nzValue="yes-two">Sí</label>
+                                <label nz-radio nzValue="no-two">No</label>
+                            </nz-radio-group>
+                        </div>
+                    </td>
+                    <td>
+                        <button nz-button nzType="default" (click)="showModal()">Editar</button>
+                    </td>
+                    <td class="text-center">
+                        <i class="icon-primary icon icon-delete-alt mr-2 fs-16"></i>
+                    </td>
+                </tr>
+                </tbody>
+            </nz-table>
+            
+            <nz-pagination
+            class="text-center my-4"
+                *ngIf="listOfData.length > 0"
+                [(nzPageIndex)]="pageIndex"
+                [(nzPageSize)]="pageSize"
+                [nzTotal]="total"
+                [nzPageSizeOptions]="pageSizeOptions"
+                (nzPageSizeChange)="onPageSizeChange($event)"
+                (nzPageIndexChange)="onPageIndexChange($event)">
+            </nz-pagination>
+            
+        </nz-card>
+    </div>
+  </div>
+</div>
+<nz-modal 
+[nzFooter]="modalFooter" 
+[(nzVisible)]="isVisible" 
+nzWidth="60%" 
+nzTitle="Editar funcionalidad" 
+(nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <div>
+        <div class="col-12">
+            <nz-form-item class="m-0">
+                <nz-form-label>Título</nz-form-label>
+                <input nz-input id="titulo" />
+            </nz-form-item>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <nz-form-item class="m-0">
+                    <nz-form-label>Funcionalidad</nz-form-label>
+                    <input nz-input id="Funcionalidad-modal" />
+                </nz-form-item>
+            </div>
+            <div class="col-6">
+                <nz-form-item class="m-0">
+                    <nz-form-label>Estado Quipux</nz-form-label>
+                    <nz-select id="vertical" nzPlaceHolder="Seleccionar">
+                        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+                        <nz-option nzValue="disabled" nzLabel="Disabled" nzDisabled></nz-option>
+                    </nz-select>
+                </nz-form-item>
+            </div>
+        </div>
+    </div>
+   
+    <ng-template #modalFooter>
+      <button nz-button nzType="default" (click)="handleCancel()"> Cancelar</button>
+      <button nz-button nzType="primary" (click)="handleOk()" >Guardar</button>
+    </ng-template>
+  </ng-container>
+</nz-modal>

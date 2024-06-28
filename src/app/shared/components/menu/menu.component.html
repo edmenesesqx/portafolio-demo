@@ -1,0 +1,52 @@
+<div [ngClass]="{ 'collapsed': isCollapsed }">
+  <div class="wrapper">
+      <!-- <button nz-button nzType="primary" (click)="toggleCollapsed()">
+        <span nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></span>
+      </button> -->
+      <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+        <li
+          nz-menu-item
+          nz-tooltip
+          nzTooltipPlacement="right"
+          [nzTooltipTitle]="isCollapsed ? 'Navigation One' : ''"
+          nzSelected
+          class="h-auto text-center p-4 bg-white m-0 text-black border"
+        >
+          <i class="text-center icon icon-edit mr-2 fs-16 d-block"></i>
+          <span>Portafolio</span>
+        </li>
+        <li
+          nz-menu-item
+          nz-tooltip
+          nzTooltipPlacement="right" 
+          class="h-auto text-center p-4 bg-white m-0 text-black border">
+          <i class="text-center icon icon-edit mr-2 fs-16 d-block"></i>
+          <span>Plataforma / Servicio</span>
+        </li>
+        <li 
+          nz-menu-item
+          nz-tooltip
+          nzTooltipPlacement="right"
+          class="h-auto text-center p-4 bg-white m-0 text-black border">
+          <i class="text-center icon icon-edit mr-2 fs-16 d-block"></i>
+          <span>Componentes</span>
+        </li>
+        <li 
+          nz-menu-item
+          nz-tooltip
+          nzTooltipPlacement="right"
+          class="h-auto text-center p-4 bg-white m-0 text-black border">
+          <i class="text-center icon icon-edit mr-2 fs-16 d-block"></i>
+          <span>Cátalogo</span>
+        </li>
+        <li 
+          nz-menu-item
+          nz-tooltip
+          nzTooltipPlacement="right"
+          class="h-auto text-center p-4 bg-white m-0 text-black border">
+          <i class="text-center icon icon-edit mr-2 fs-16 d-block"></i>
+          <span>Control de cambios</span>
+        </li>
+      </ul>
+  </div>
+</div>
